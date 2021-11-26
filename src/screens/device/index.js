@@ -9,6 +9,7 @@ import HeaderPlain from '../../components/header';
 import QRCode from 'react-native-qrcode-svg';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 import { ThemeContext } from '../../../App';
+import { primaryDarkColor } from '../../assets/colors';
 
 
 const DeviceView = ({
@@ -50,13 +51,13 @@ const DeviceView = ({
     }
 
     return (
-        <SafeAreaView style={[styles.container,{backgroundColor:isDarkMode ? "grey" : "white"}]}>
-            <HeaderPlain title={'Device Details'} navigation={navigation} />
-            <View style={styles.headerContainer}>
+        <SafeAreaView style={[styles.container,{backgroundColor:isDarkMode ? primaryDarkColor : "white"}]}>
+            <HeaderPlain title={'Proximus'} navigation={navigation} />
+            {/* <View style={styles.headerContainer}>
                 <Text style={[styles.headerText,{color:isDarkMode?"#fff":"#000"}]}>
-                    {deviceName}
+                    {'Device Dteails'}
                 </Text>
-            </View>
+            </View> */}
             <View style={styles.barcodeContainer}>
                 <QRCode
                     value={JSON.stringify(barcodeData)}

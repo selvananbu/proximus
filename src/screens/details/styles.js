@@ -5,8 +5,7 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         alignItems:"center",
-        justifyContent:"center",
-        height:heightPercentageToDP(100)
+        justifyContent:"center"
     },
     headerContainer:{
         height:heightPercentageToDP(15),
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
     },
     formContainer:{
         height:heightPercentageToDP(60),
-        alignItems:"flex-start",
+        alignItems:"center",
         justifyContent:"space-evenly"
     },
     textInputContainer:{

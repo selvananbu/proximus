@@ -10,6 +10,7 @@ import { ThemeContext } from '../../../App';
 import Toast from 'react-native-simple-toast';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { heightPercentageToDP } from 'react-native-responsive-screen';
+import { primaryDarkColor } from '../../assets/colors';
 
 
 
@@ -81,9 +82,10 @@ const DeviceDetail = ({
     }
 
     return (
-        <KeyboardAwareScrollView>
+       
 
-        <SafeAreaView style={[styles.container,{backgroundColor:isDarkMode?"grey":"white"}]}>
+        <SafeAreaView style={[styles.container,{backgroundColor:isDarkMode?primaryDarkColor:"white"}]}>
+             <KeyboardAwareScrollView>
             
                 <HeaderPlain title={'Proximus'}  navigation={navigation}/>
             <View style={styles.headerContainer}>
@@ -151,8 +153,9 @@ const DeviceDetail = ({
                     </Text>
                 </TouchableOpacity>
             </View>
-        </SafeAreaView>
+
         </KeyboardAwareScrollView>
+        </SafeAreaView>
     )
 }
 

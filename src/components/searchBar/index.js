@@ -4,6 +4,7 @@ import { heightPercentageToDP } from 'react-native-responsive-screen';
 import { useDispatch } from 'react-redux';
 import { ThemeContext } from '../../../App';
 import { searchFilterEnetered } from '../../actions';
+import { primaryDarkColor } from '../../assets/colors';
 import styles from './styles';
 
 const SearchBar = ({
@@ -21,7 +22,7 @@ const SearchBar = ({
     }
 
     return (
-        <SafeAreaView style={[styles.container, { backgroundColor: isDarkMode ? "grey" : "white" }]}>
+        <SafeAreaView style={[styles.container, { backgroundColor: isDarkMode ? primaryDarkColor : "white" }]}>
                 <TouchableOpacity style={styles.textInputContainer}>
                     <TextInput
                         onChangeText={(text) => onSearchFilterEneterd(text)}

@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
         fontSize:32
     },
     barcodeContainer:{
-        height:heightPercentageToDP(35),
+        height:heightPercentageToDP(40),
         width:widthPercentageToDP(100),
         alignItems:"center",
         justifyContent:"center"
     },
     formContainer:{
-        height:heightPercentageToDP(25),
+        height:heightPercentageToDP(40),
         alignItems:"flex-start",
         justifyContent:"space-evenly"
     },

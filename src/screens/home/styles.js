@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
         alignItems:"flex-start",
         justifyContent:"center",
         
+        
     },
     fabStyles:{
         position:"absolute",
-        top:heightPercentageToDP(80),
+        top:heightPercentageToDP(75),
         left:widthPercentageToDP(80),
         height:heightPercentageToDP(20),
     },

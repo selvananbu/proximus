@@ -6,6 +6,7 @@ import Toast from 'react-native-toast-message';
 import { getQuoteOftheDay } from './helper';
 import styles from './styles';
 import { ThemeContext } from '../../../App';
+import { itemDarkColor, primaryDarkColor } from '../../assets/colors';
 
 const DeviceItem = ({
     navigation,
@@ -63,7 +64,7 @@ const DeviceItem = ({
 
 
     return (
-        <TouchableOpacity style={[styles.container, { borderBottomColor: isDarkMode ? "#ffff" : "#000" }]} onPress={() => onDevicePressed()}>
+        <TouchableOpacity style={[styles.container, { borderBottomColor: isDarkMode ? primaryDarkColor : "#000",backgroundColor:isDarkMode?itemDarkColor:"white" }]} onPress={() => onDevicePressed()}>
             <View style={styles.textContainer}>
                 <Text style={[styles.deviceHeader, { color: isDarkMode ? '#ffff' : '#000000' }]}>{deviceName}</Text>
                 <Text style={[styles.platform, { color: isDarkMode ? '#ffff' : '#000000' }]}>{platform}</Text>

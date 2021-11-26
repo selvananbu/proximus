@@ -7,6 +7,7 @@ import { arrayToCSV, csvJSON } from './helper';
 import styles from './styles';
 import Toast from 'react-native-simple-toast';
 import DocumentPicker from 'react-native-document-picker'
+import { primaryDarkColor } from '../../assets/colors';
 
 
 var RNFS = require('react-native-fs');
@@ -66,7 +67,7 @@ const ExportImport = ({
     }
 
     return (
-        <SafeAreaView style={[styles.container, { backgroundColor: isDarkMode ? "grey" : "white" }]}>
+        <SafeAreaView style={[styles.container, { backgroundColor: isDarkMode ? primaryDarkColor : "white" }]}>
             <View style={styles.controllerContainer}>
                 {deviceReducer?.deviceList?.length > 0
                     ?
