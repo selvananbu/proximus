@@ -27,7 +27,7 @@ const SearchBar = ({
                     <TextInput
                         onChangeText={(text) => onSearchFilterEneterd(text)}
                         value={searchText}
-                        placeholder='Search Device by Name,Platform...'
+                        placeholder='Search Device by Name,Platform or Owner...'
                         placeholderTextColor={isDarkMode ? "#fff" : "grey"}
                         style={{
                             color: isDarkMode ? "#fff" : "#000",
