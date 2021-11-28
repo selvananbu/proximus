@@ -4,6 +4,7 @@ import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { ThemeContext } from '../../../App';
 import DeviceItem from '../deviceItem';
+import EmptyState from '../emptyState';
 import makeStyles from './styles';
 import styles from './styles';
 
@@ -25,11 +26,16 @@ const ListView = ({
                             )
                         })
                         :
+                        deviceReducer?.deviceList?.length  > 0
+                        ?
                         deviceReducer?.deviceList?.map((device, idx) => {
                             return (
                                 <DeviceItem device={device} navigation={navigation} key={idx + "_"} />
                             )
-                        })}
+                        })
+                        :
+                        <EmptyState/>
+                    }
             </ScrollView>
         </SafeAreaView>
     )

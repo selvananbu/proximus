@@ -6,8 +6,5 @@ export const getQuoteOftheDay = async () => {
         method: 'get',
         url: 'https://zenquotes.io/api/today',
       })
-    
-      if(response){
-          return response;
-      }
+    return response;
 }

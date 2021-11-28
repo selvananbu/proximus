@@ -11,6 +11,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flexDirection: "row"
     },
+    iconContainer: {
+        width: widthPercentageToDP(10),
+        height: heightPercentageToDP(8),
+        alignItems: "flex-start",
+        justifyContent: "center",
+    },
     textContainer: {
         width: widthPercentageToDP(45),
         height: heightPercentageToDP(8),
@@ -18,7 +24,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     actionContainer: {
-        width: widthPercentageToDP(45),
+        width: widthPercentageToDP(35),
         height: heightPercentageToDP(8),
         flexDirection: "row",
         alignItems: "center",

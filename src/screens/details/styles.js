@@ -29,7 +29,21 @@ const styles = StyleSheet.create({
         borderRadius:8,
         borderWidth:1,
         justifyContent:"center",
-        paddingLeft:widthPercentageToDP(3)
+        paddingLeft:widthPercentageToDP(1)
+    },
+    textFields:{
+        fontFamily:"Cochin",
+        fontSize:18
+    },
+    switchContainer:{
+        width:widthPercentageToDP(75),
+        height:heightPercentageToDP(5),
+        justifyContent:"center",
+        flexDirection:"row",
+        alignItems:"center"
+    },
+    switch:{
+        marginLeft:widthPercentageToDP(5)
     },
     buttonContainer:{
         borderWidth:1,

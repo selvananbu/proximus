@@ -53,7 +53,9 @@ const deviceReducer = (state = initialState, action) => {
             let filterList = [];
             if(searchText !== ''){
                 list?.map((device, idx) => {
-                    if (device?.deviceName.includes(searchText)) {
+                   if (device?.deviceName?.toLowerCase().indexOf(searchText.toLowerCase()) > -1 || 
+                        device?.platform?.toLowerCase().indexOf(searchText.toLowerCase()) > -1  ||
+                        device?.owner?.toLowerCase().indexOf(searchText.toLowerCase()) > -1 )  {
                         filterList.push(device)
                     }
                 })

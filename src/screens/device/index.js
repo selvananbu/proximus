@@ -19,6 +19,7 @@ const DeviceView = ({
     const [platform, setPlatForm] = useState('');
     const [currentOwner, setCurrentOwner] = useState('');
     const [barcodeData, setBarCodeData] = useState('');
+    const [active, setActive] = useState('');
     const [isEditMode, setIsEditMode] = useState(false);
 
     const route = useRoute();
@@ -36,11 +37,13 @@ const DeviceView = ({
             setCurrentOwner(device?.owner)
             setDeviceName(device?.deviceName)
             setPlatForm(device?.platform)
+            setActive(device?.active)
 
             let barCodeData = {
-                deviceName:device?.deviceName,
-                deviceOwner:device?.owner,
-                platform:device?.platform
+                deviceName: device?.deviceName,
+                deviceOwner: device?.owner,
+                platform: device?.platform,
+                platform: device?.active
             }
             setBarCodeData(barCodeData)
         }
@@ -49,15 +52,17 @@ const DeviceView = ({
     const onBackPressed = () => {
         navigation.pop();
     }
+    const onUpdatePressed = () => {
+        let params = route?.params;
+        if (params) {
+            let device = params?.device;
+            navigation.navigate("DeviceDetail", { editDevice: device })
+        }
+    }
 
     return (
-        <SafeAreaView style={[styles.container,{backgroundColor:isDarkMode ? primaryDarkColor : "white"}]}>
-            <HeaderPlain title={'Proximus'} navigation={navigation} />
-            {/* <View style={styles.headerContainer}>
-                <Text style={[styles.headerText,{color:isDarkMode?"#fff":"#000"}]}>
-                    {'Device Dteails'}
-                </Text>
-            </View> */}
+        <SafeAreaView style={[styles.container, { backgroundColor: isDarkMode ? primaryDarkColor : "white" }]}>
+            <HeaderPlain title={'Proximus'} navigation={navigation} isBackEnabled={true} />
             <View style={styles.barcodeContainer}>
                 <QRCode
                     value={JSON.stringify(barcodeData)}
@@ -66,28 +71,41 @@ const DeviceView = ({
             </View>
             <View style={styles.formContainer}>
                 <TouchableOpacity style={styles.textInputContainer}>
-                    <Text style={[styles.textFields,{color:isDarkMode?"#fff":"#000"}]}>
+                    <Text style={[styles.textFields, { color: isDarkMode ? "#fff" : "#000" }]}>
                         Device Name: {deviceName}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.textInputContainer}>
-                    <Text style={[styles.textFields,{color:isDarkMode?"#fff":"#000"}]}>
-                    Platform: {platform}
+                    <Text style={[styles.textFields, { color: isDarkMode ? "#fff" : "#000" }]}>
+                        Platform: {platform}
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.textInputContainer}>
+                    <Text style={[styles.textFields, { color: isDarkMode ? "#fff" : "#000" }]}>
+                        Owner: {currentOwner}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.textInputContainer}>
-                    <Text style={[styles.textFields,{color:isDarkMode?"#fff":"#000"}]}>
-                        Owner: {currentOwner}
+                    <Text style={[styles.textFields, { color: isDarkMode ? "#fff" : "#000" }]}>
+                        State: {active ? "Active" : "Inactive"}
                     </Text>
                 </TouchableOpacity>
 
             </View>
-            <TouchableOpacity style={[styles.buttonContainer,{borderColor:isDarkMode?"#fff":"#000"}]} onPress={() => onBackPressed()}>
-                <Text style={[styles.buttonText,{color:isDarkMode?"#fff":"#000"}]}>
-                    Back
-                </Text>
-            </TouchableOpacity>
+            <View style={styles.actionContainer}>
+                <TouchableOpacity style={[styles.buttonContainer, { borderColor: isDarkMode ? "#fff" : "#000" }]} onPress={() => onBackPressed()}>
+                    <Text style={[styles.buttonText, { color: isDarkMode ? "#fff" : "#000" }]}>
+                        Back
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.buttonContainer, { borderColor: isDarkMode ? "#fff" : "#000" }]} onPress={() => onUpdatePressed()}>
+                    <Text style={[styles.buttonText, { color: isDarkMode ? "#fff" : "#000" }]}>
+                        Update
+                    </Text>
+                </TouchableOpacity>
 
+            </View>
         </SafeAreaView>
     )
 }

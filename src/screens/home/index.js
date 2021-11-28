@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
-import { Text, View, TouchableOpacity, SafeAreaView, ActivityIndicator } from 'react-native';
+import { Text, View, SafeAreaView, ActivityIndicator,Alert } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from '../../../App';
@@ -23,6 +23,9 @@ const Home = ({
 
         initializeList();
     }, [])
+
+  
+
 
     const initializeList = async () => {
         try {

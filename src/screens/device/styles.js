@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
         fontSize:32
     },
     barcodeContainer:{
-        height:heightPercentageToDP(40),
+        height:heightPercentageToDP(50),
         width:widthPercentageToDP(100),
         alignItems:"center",
         justifyContent:"center"
     },
     formContainer:{
-        height:heightPercentageToDP(40),
+        height:heightPercentageToDP(30),
         alignItems:"flex-start",
         justifyContent:"space-evenly"
     },
@@ -35,10 +35,16 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         paddingLeft:widthPercentageToDP(3)
     },
+    actionContainer:{
+        flexDirection:"row",
+        width:"100%",
+        justifyContent:"space-evenly",
+        alignItems:"center"
+    },
     buttonContainer:{
         borderWidth:1,
         borderRadius:4,
-        width:widthPercentageToDP(15),
+        width:widthPercentageToDP(25),
         height:heightPercentageToDP(5),
         alignItems:"center",
         justifyContent:"center"

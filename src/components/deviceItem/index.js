@@ -18,9 +18,9 @@ const DeviceItem = ({
 
     const onDeleteConfirmed = async () => {
         let response = await getQuoteOftheDay();
+        dispatch(deleteItemFromList({ json: device }))
         if (response?.status === 200) {
-            dispatch(deleteItemFromList({ json: device }))
-            console.log("Came herrrr");
+           
             let data = response?.data[0];
             Toast.show({
                 type: 'success',
@@ -35,6 +35,7 @@ const DeviceItem = ({
                 text2: 'Netwok error'
             });
         }
+       
     }
 
     const onDeviceDeletePressed = () => {
@@ -57,17 +58,22 @@ const DeviceItem = ({
     const onDevicePressed = () => {
         navigation.navigate("DeviceView", { device: device })
     }
-    const { deviceName, platform } = device;
+    const { deviceName, platform, owner } = device;
     let editIcon = isDarkMode ? require("../../assets/image/editDark.png") : require("../../assets/image/editLight.png")
     let deleteIcon = isDarkMode ? require("../../assets/image/deleteDark.png") : require("../../assets/image/deleteLight.png")
     let rightIcon = isDarkMode ? require("../../assets/image/rightIconDark.png") : require("../../assets/image/rightIconLight.png")
+    let activeInactiveIcon = device?.active ? require("../../assets/image/active.jpg") : require("../../assets/image/inactive.jpg")
 
 
     return (
         <TouchableOpacity style={[styles.container, { borderBottomColor: isDarkMode ? primaryDarkColor : "#000",backgroundColor:isDarkMode?itemDarkColor:"white" }]} onPress={() => onDevicePressed()}>
+            
+            <View style={styles.iconContainer}>
+                <Image source={activeInactiveIcon} style={styles.iconStyle} resizeMode="contain" />
+            </View>
             <View style={styles.textContainer}>
                 <Text style={[styles.deviceHeader, { color: isDarkMode ? '#ffff' : '#000000' }]}>{deviceName}</Text>
-                <Text style={[styles.platform, { color: isDarkMode ? '#ffff' : '#000000' }]}>{platform}</Text>
+                <Text style={[styles.platform, { color: isDarkMode ? '#ffff' : '#000000' }]}>{owner} / {platform}</Text>
             </View>
             <View style={styles.actionContainer}>
                 <View style={styles.controlContainer}>
