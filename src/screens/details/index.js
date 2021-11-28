@@ -68,8 +68,7 @@ const DeviceDetail = ({
             platform: platform,
             owner: currentOwner,
             purchaseDate:date.toUTCString(),
-            active:isActive,
-            owner:currentOwner
+            active:isActive
         }
         Toast.show('Device added successfully...', Toast.LONG);
         dispatch(addItemToList({ json: body }));
@@ -104,6 +103,8 @@ const DeviceDetail = ({
         setCurrentOwner('')
         setDeviceName('')
         setPlatForm('')
+        setIsActive(false)
+        setDate(new Date())
     }
 
     let index = 0;

@@ -17,7 +17,7 @@ const EmptyState = ({
     <View style={styles.emptyContainer}>
            <Image source={emptyIcon} style={styles.emptyIcon} resizeMode="contain"/>
            <Text style={[styles.emptyText,{color:isDarkMode ? "#fff" :"#000"}]}>
-              Oops! no devices found in the intventry you can
+              Oops! no devices found in the intventory you can
            </Text>
            <Text style={[styles.emptyText,{color:isDarkMode ? "#fff" :"#000"}]}>
               no problem you can add here.
